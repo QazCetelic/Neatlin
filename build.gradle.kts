@@ -1,10 +1,10 @@
 plugins {
-    kotlin("multiplatform") version "1.5.30"
+    kotlin("multiplatform") version "1.6.20"
     maven
 }
 
 group = "org.qaz.neatlin"
-version = "0.3.3"
+version = "0.3.4"
 
 repositories {
     mavenCentral()
