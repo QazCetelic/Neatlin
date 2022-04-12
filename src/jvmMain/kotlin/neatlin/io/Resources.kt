@@ -9,12 +9,13 @@ import javax.imageio.ImageIO
  * Used for getting resources from project
  */
 object Resources {
+
     /**
      * Takes **relative** path from the *resources folder* root.
      * @return Text from file
      */
     fun loadText(resource: String): String {
-        return this::class.java.getResource(fixPath(resource))?.readText() ?: ""
+        return ClassLoader.getSystemClassLoader().getResource(fixPath(resource))?.readText() ?: ""
 
     }
     /**
@@ -22,13 +23,13 @@ object Resources {
      * @return Raw data as bytes
      */
     fun loadBytes(resource: String): ByteArray {
-        return this::class.java.getResource(fixPath(resource))?.readBytes() ?: byteArrayOf()
+        return ClassLoader.getSystemClassLoader().getResource(fixPath(resource))?.readBytes() ?: byteArrayOf()
     }
     /**
      * Takes **relative** path from the *resources folder* root.
      */
     fun loadStream(resource: String): InputStream? {
-        return this::class.java.getResourceAsStream(fixPath(resource))
+        return ClassLoader.getSystemClassLoader().getResourceAsStream(fixPath(resource))
     }
 
     // TODO test this
