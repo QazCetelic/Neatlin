@@ -20,9 +20,3 @@ operator fun <T> MutableList<T>.set(range: IntRange, value: T) {
         this[i] = value
     }
 }
-
-fun <T> MutableList<T>.addAll(vararg elements: T) {
-    for (element in elements) {
-        add(element)
-    }
-}
