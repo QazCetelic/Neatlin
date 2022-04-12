@@ -1,6 +1,5 @@
 package neatlin.naming_convention
 
-import neatlin.applyIf
 import neatlin.collections.string.plusAssign
 import neatlin.naming_convention.Case.*
 
@@ -82,7 +81,7 @@ fun String.caseSplit(case: Case? = this.case): List<String> {
         CAMEL_CASE, PASCAL_CASE -> let {
             val parts = mutableListOf<String>()
             val sb = StringBuilder()
-            sb += first().applyIf(case == PASCAL_CASE) { it[0].lowercaseChar() }
+            sb += first().let { if (case == PASCAL_CASE) it.lowercaseChar() else it }
             for (c in this.drop(1)) {
                 if (c.isUpperCase()) {
                     sb += c.lowercase()
